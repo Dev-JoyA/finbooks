@@ -7,8 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FinbooksApplication {
 
 	public static void main(String[] args) {
-        System.out.println("Hello world");
-		
+
         SpringApplication.run(FinbooksApplication.class, args);
 	}
 
