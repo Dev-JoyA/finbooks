@@ -11,6 +11,7 @@ import com.whytelabeltech.finbooks.app.user.repository.UserRepository;
 import com.whytelabeltech.finbooks.middleware.exception.error.AuthenticationException;
 import com.whytelabeltech.finbooks.middleware.exception.error.UserException;
 import com.whytelabeltech.finbooks.middleware.security.service.JwtService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
@@ -93,6 +94,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    @Transactional
     public User updateUser (Long userId, UpdateUserDto request){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentUsername = authentication.getName();
@@ -132,6 +134,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    @Transactional
     public MessageResponse deleteUser (Long userId){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentUsername = authentication.getName();
