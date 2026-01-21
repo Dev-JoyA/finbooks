@@ -12,6 +12,10 @@ import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -29,22 +33,25 @@ public class Book {
 
     private LocalDateTime publishedDate;
 
-//    @OneToMany(fetch = FetchType.EAGER)
-//    @JsonIgnore
-//    private Author author;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id", nullable = false)
+    private Author author;
 
-    private String rating;
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews = new ArrayList<>();
 
-    //private Review review;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @ManyToMany
+    @JoinTable(
+            name = "book_categories",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private Set<Category> categories = new HashSet<>();
 
     private String comment;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
-
 
 }

@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.modelmapper.internal.bytebuddy.dynamic.loading.InjectionClassLoader;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,7 +28,7 @@ public class Author {
 
     private String bio;
 
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    private Book book;
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    private List<Book> books = new ArrayList<>();
 
 }
