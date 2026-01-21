@@ -1,10 +1,6 @@
 package com.whytelabeltech.finbooks.middleware.security.service;
 
-import com.whytelabeltech.finbooks.app.email.service.MailManager;
-import com.whytelabeltech.finbooks.app.email.util.EmailBuilderRequest;
-import com.whytelabeltech.finbooks.app.user.dto.request.UserRequestDto;
-import com.whytelabeltech.finbooks.app.user.dto.response.UserResponseDto;
-import com.whytelabeltech.finbooks.app.user.model.Role;
+
 import com.whytelabeltech.finbooks.app.user.repository.UserRepository;
 import com.whytelabeltech.finbooks.app.user.model.User;
 import com.whytelabeltech.finbooks.middleware.security.dto.LoginRequest;
@@ -13,13 +9,11 @@ import com.whytelabeltech.finbooks.middleware.security.dto.RefreshTokenDto;
 import com.whytelabeltech.finbooks.middleware.security.model.CustomUserDetail;
 import com.whytelabeltech.finbooks.middleware.exception.error.AuthenticationException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 
 @Service
 public class AuthenticationService {
