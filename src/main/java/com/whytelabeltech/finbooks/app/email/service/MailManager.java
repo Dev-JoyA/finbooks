@@ -8,4 +8,5 @@ public interface MailManager {
 
     void sendOtpEmailToResetPassword(EmailBuilderRequest emailBuilderRequest);
 
+
 }

@@ -6,6 +6,7 @@ import com.whytelabeltech.finbooks.app.category.service.CategoryService;
 import com.whytelabeltech.finbooks.app.shared.dto.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,10 +20,12 @@ public class CategoryController {
 
     @GetMapping
     public ResponseEntity<List<CategoryResponseDto>> getAll (){
+
         return ResponseEntity.ok(categoryService.getAll());
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public ResponseEntity<CategoryResponseDto> create (
             @RequestBody CategoryRequestDto request
         ) {
@@ -30,6 +33,7 @@ public class CategoryController {
     }
 
     @PutMapping("{id}")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public ResponseEntity<CategoryResponseDto> update (
             @PathVariable Long id,
             @RequestBody CategoryRequestDto request
@@ -38,6 +42,7 @@ public class CategoryController {
     }
 
     @DeleteMapping("{id}")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public ResponseEntity<MessageResponse> delete (
             @PathVariable Long id
     ) {

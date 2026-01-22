@@ -1,7 +1,16 @@
 package com.whytelabeltech.finbooks.app.review.dto.response;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ReviewResponseDto {
     private Long id;
 

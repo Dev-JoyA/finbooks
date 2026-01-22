@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP EMAIL TEMPLATE</title>
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          background-color: #f7f9fc;
+          font-family: Calibri, sans-serif;
+          font-size: 11pt;
+          color: #333;
+        }
+
+        .container {
+          max-width: 600px;
+          margin: 30px auto;
+          background: #ffffff;
+          border-radius: 6px;
+          box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+          background: #004080;
+          padding: 25px 20px;
+          text-align: center;
+          color: #ffffff;
+        }
+
+        .header img {
+          max-width: 100px;
+          margin-bottom: 10px;
+        }
+
+        .header h1 {
+          font-size: 14pt;
+          margin: 0;
+          font-weight: bold;
+        }
+
+        /* Content */
+        .content {
+          padding: 25px 20px;
+          text-align: left;
+        }
+
+        .content h3 {
+          font-size: 12pt;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+
+        .content p {
+          font-size: 11pt;
+          line-height: 1.5;
+          margin: 6px 0;
+        }
+
+        .btn {
+          display: inline-block;
+          margin-top: 15px;
+          padding: 8px 16px;
+          background-color: #004080;
+          color: #ffffff !important;
+          text-decoration: none;
+          border-radius: 4px;
+          font-size: 11pt;
+          font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+          background-color: #f1f3f9;
+          padding: 12px;
+          text-align: center;
+          font-size: 10pt;
+          color: #666;
+        }
+
+        @media (max-width: 600px) {
+          .container {
+            margin: 15px;
+          }
+          .header h1 {
+            font-size: 13pt;
+          }
+          .content h3 {
+            font-size: 11pt;
+          }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>WHYTLABEL TECH</h1>
+    </div>
+    <h3 style="text-align: center;">PASSWORD RESET</h3>
+    <!-- Content -->
+    <div class="content">
+        <h3>Hello <span th:text="${name}">Name</span>,</h3>
+
+        <p>We received a request to verify your account.</p>
+        <p>Your One-Time Password (OTP) is:  <span th:text="${otp}">OTP</span></p>
+        <p style="margin-top: 15px;">
+            Please enter this OTP to complete your verification. This code will expire in 10 minutes.
+        </p>
+
+    </div>
+
+    <p style="font-size: 11pt; color: #333; margin-top: 20px;">
+        Warm regards,<br>
+        <b>WhytLabel Tech Team</b>
+    </p>
+    <img class="max-width: 120px; margin: 40px auto; display: block;" alt="Company logo"
+         src="https://res.cloudinary.com/dfb0grd49/image/upload/v1768985334/whytelabel_icnrl5.png">
+    <!-- Footer -->
+    <div class="footer">
+        © 2026 WHYTELABEL TECH. All rights reserved.<br>
+        This is an automated email, please do not reply.
+    </div>
+</div>
+</body>
+</html>

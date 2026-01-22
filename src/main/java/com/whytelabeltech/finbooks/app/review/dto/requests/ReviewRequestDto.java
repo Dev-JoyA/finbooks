@@ -18,5 +18,6 @@ public class ReviewRequestDto {
     @Size(max = 1000)
     private String comment;
 
+    @NotNull
     private Long userId;
 }
