@@ -23,10 +23,10 @@ public class ReviewServiceImpl implements ReviewService{
                 .orElseThrow(() -> new ReviewException("Review cannot be found"));
 
         if(request.getComment() != null){
-            review.setComment(review.getComment());
+            review.setComment(request.getComment());
         }
         if(request.getRating() != null){
-            review.setRating(review.getRating());
+            review.setRating(request.getRating());
         }
 
         reviewRepository.save(review);

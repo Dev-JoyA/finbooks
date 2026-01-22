@@ -43,6 +43,7 @@ public class AuthorServiceImpl implements AuthorService{
         BookAuthorDto dto = new BookAuthorDto();
         dto.setBio(author.getBio());
         dto.setName(author.getName());
+        dto.setId(author.getId());
         dto.setEmail(author.getEmail());
         dto.setBooks(author.getBooks().stream()
                 .map(book -> new BookDetailsResponse(
