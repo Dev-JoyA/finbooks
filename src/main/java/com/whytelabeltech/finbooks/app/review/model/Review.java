@@ -3,6 +3,10 @@ package com.whytelabeltech.finbooks.app.review.model;
 import com.whytelabeltech.finbooks.app.book.model.Book;
 import com.whytelabeltech.finbooks.app.user.model.User;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,9 +26,12 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private Rating rating;
+    @Min(1)
+    @Max(5)
+    @NotNull
+    private Integer rating;
 
+    @Size(max=1000)
     private String comment;
 
     @ManyToOne(fetch = FetchType.LAZY)

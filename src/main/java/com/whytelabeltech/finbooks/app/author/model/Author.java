@@ -2,6 +2,9 @@ package com.whytelabeltech.finbooks.app.author.model;
 
 import com.whytelabeltech.finbooks.app.book.model.Book;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,10 +25,15 @@ public class Author {
     @Id
     private Long id;
 
+    @NotBlank
+    @Column(nullable = false)
     private String name;
 
+    @Email
+    @Column(unique = true)
     private String email;
 
+    @Size(max=500)
     private String bio;
 
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
