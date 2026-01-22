@@ -1,15 +1,12 @@
 package com.whytelabeltech.finbooks.app.book.dto.response;
 
-import com.whytelabeltech.finbooks.app.book.dto.response.review.ReviewResponseDto;
+import com.whytelabeltech.finbooks.app.book.dto.response.review.ReviewsDto;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Getter
 @Setter
@@ -18,9 +15,9 @@ public class BookResponseDto {
     private String title;
     private String isbn;
     private LocalDate publishedDate;
-    private List<AuthorFullDetailsResponse> authors = new ArrayList<>();
+    private AuthorFullDetailsResponse author;
     private List<CategoryDetailResponse> categories = new ArrayList<>();
     private Integer rating;
-    private List<ReviewResponseDto> reviews = new ArrayList<>();
+    private List<ReviewsDto> reviews = new ArrayList<>();
 
 }

@@ -10,11 +10,9 @@ import lombok.Setter;
 @Setter
 public class AuthorRequestDto {
 
-    @NotBlank
     private String name;
 
     @Email
-    @NotBlank
     private String email;
 
     @Size(max=500)
