@@ -92,15 +92,35 @@ src/<br>
 
 The FinBooks API exposes REST endpoints to manage books, authors, categories, users, and reviews. All endpoints are secured with JWT authentication unless stated otherwise.
 
-### 🔹 Authentication
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST   | /auth/register | Register a new user |
-| POST   | /auth/login    | Login and receive JWT token |
+### 🔹 Authentication & Password Management
+
+#### **Authentication**
+| Method | Endpoint                  | Description |
+|--------|---------------------------|-------------|
+| POST   | /api/v1/auth/login        | Authenticate a user and return JWT & refresh token. |
+| POST   | /api/v1/auth/refresh      | Refresh an existing JWT using a refresh token. |
+
+**Notes:**
+- The login endpoint returns a `LoginResponse` containing an access token and refresh token.
+- Include the JWT token in the `Authorization` header for all protected endpoints:  
+  `Authorization: Bearer <access_token>`
+
+#### **Password Management**
+| Method | Endpoint                        | Description |
+|--------|---------------------------------|-------------|
+| POST   | /password/forgot-password        | Initiate a password reset request (force reset). |
+| GET    | /password/validate-otp           | Validate the OTP sent during password reset. |
+| PUT    | /password/new-password           | Set a new password after validating OTP. |
+
+**Notes:**
+- Password endpoints are used to handle forgot/reset password workflows.
+- Ensure OTP is validated before calling `/new-password`.
+
 
 ### 🔹 Users
 | Method | Endpoint | Description |
 |--------|----------|-------------|
+| POST   | /users | Register user  |
 | GET    | /users/{id} | Get user by ID |
 | PUT    | /users/{id} | Update user (self only) |
 | DELETE | /users/{id} | Delete user (self or admin) |
@@ -122,6 +142,8 @@ The FinBooks API exposes REST endpoints to manage books, authors, categories, us
 | POST   | /books         | Create a new book |
 | PUT    | /books/{id}    | Update a book |
 | DELETE | /books/{id}    | Delete a book |
+| POST | /books/{id}/reviews    | Create a book review |
+| GET | /books/{id}/reviews    | Get a book review by ID |
 
 ### 🔹 Categories
 | Method | Endpoint | Description |
@@ -135,10 +157,8 @@ The FinBooks API exposes REST endpoints to manage books, authors, categories, us
 ### 🔹 Reviews
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET    | /reviews/book/{bookId}  | Get reviews for a book |
-| POST   | /reviews               | Create a new review |
-| PUT    | /reviews/{id}          | Update a review (self only) |
-| DELETE | /reviews/{id}          | Delete a review (self only) |
+| PUT    | /reviews/{id}          | Update a review  |
+| DELETE | /reviews/{id}          | Delete a review  |
 
 
 ### 🔐 Security Configuration
