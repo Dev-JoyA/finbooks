@@ -141,7 +141,7 @@ class UserServiceImplTest {
         setupSecurityContextForUpdate("testuser");
 
         UpdateUserDto request = new UpdateUserDto();
-        request.setUsername("testuser"); // same as current
+        request.setUsername("testuser");
         request.setEmail("updated@example.com");
         request.setPassword("newpassword");
 
