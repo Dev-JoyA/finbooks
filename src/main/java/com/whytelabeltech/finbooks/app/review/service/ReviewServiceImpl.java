@@ -42,6 +42,7 @@ public class ReviewServiceImpl implements ReviewService{
         book.setId(review.getBook().getId());
 
         dto.setRating(review.getRating());
+        dto.setComment(review.getComment());
         dto.setId(review.getId());
         dto.setCreatedAt(review.getCreatedAt());
         dto.setUser(user);
