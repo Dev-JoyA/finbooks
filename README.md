@@ -33,7 +33,7 @@ CREATE DATABASE finbooks_db;
 cp src/main/resources/application-dev-example.properties src/main/resources/application-dev.properties
 ```
 
-2. **Update the configuration
+2. **Update the configuration**
 
 Open `application-dev.properties` and fill in your local setup details:
 
@@ -61,26 +61,26 @@ mvn spring-boot:run
 mvn test
 ```
 
-src/
-├── main/
-│   ├── java/com/whytelabeltech/finbooks/
-│   │   ├── app/
-│   │   │   ├── author/          # Author management
-│   │   │   ├── book/            # Book management
-│   │   │   ├── category/        # Category management
-│   │   │   ├── password/        # password management
-│   │   │   ├── review/          # Review management
-│   │   │   ├── user/            # User management
-│   │   │   └── shared/          # Shared components
-│   │   ├── middleware/
-│   │   │   ├── security/        # JWT, authentication
-│   │   │   ├── exception/       # Exception handling
-│   │   └── FinbooksApplication.java
-│   └── resources/
-│       ├── application.properties
-│       ├── application-dev.properties
-│       └── application-dev-example.properties
-└── test/                        # Test files
+src/<br>
+├── main/<br>
+│   ├── java/com/whytelabeltech/finbooks/<br>
+│   │   ├── app/<br>
+│   │   │   ├── author/          # Author management<br>
+│   │   │   ├── book/            # Book management<br>
+│   │   │   ├── category/        # Category management<br>
+│   │   │   ├── password/        # password management<br>
+│   │   │   ├── review/          # Review management<br>
+│   │   │   ├── user/            # User management<br>
+│   │   │   └── shared/          # Shared components<br>
+│   │   ├── middleware/<br>
+│   │   │   ├── security/        # JWT, authentication<br>
+│   │   │   ├── exception/       # Exception handling<br>
+│   │   └── FinbooksApplication.java<br>
+│   └── resources/<br>
+│       ├── application.properties<br>
+│       ├── application-dev.properties<br>
+│       └── application-dev-example.properties<br>
+└── test/                        # Test files<br>
 
 ### 🔐 Security Configuration
 
