@@ -44,20 +44,17 @@ Open `application-dev.properties` and fill in your local setup details:
 ### 4. Build the Application
 
 ```bash
-# Clean and build the project
 mvn clean install
 ```
 ### 5. Run the Application
 
 ```bash
-# Run the Spring Boot application using Maven
 mvn spring-boot:run
 ```
 
 ### 6. Run Tests
 
 ```bash
-# Run all unit and integration tests using Maven
 mvn test
 ```
 
@@ -82,6 +79,16 @@ src/<br>
 │       └── application-dev-example.properties<br>
 └── test/                        # Test files<br>
 
+## 🎨 Design Decisions
+
+1. **Feathered Monolithic Architecture**  
+   The application follows a **feathered monolithic architecture**, where each domain (e.g., `book`, `author`, `review`, `user`) is organized into its own module or package within a single Spring Boot application.  
+   - **Reason**: This approach allows for a clear separation of concerns, easier maintenance, and faster development compared to a full microservices setup, while still keeping the project deployable as a single unit. Each “feather” can later be split into microservices if needed, giving flexibility for scaling.
+
+2. **Spring Boot & JPA**  
+   Chosen for rapid development, production-ready REST APIs, and database interaction via ORM.
+
+
 ### 🔐 Security Configuration
 
 #### User Roles
@@ -92,10 +99,7 @@ src/<br>
 1. Login to obtain a JWT token.  
 2. Include the token in the `Authorization` header for protected endpoints:  
 
-#### API Documentation
-All endpoints are documented using **Swagger**.  
-- After running the application, access the Swagger UI at: [Swagger API Documentation](http://localhost:8080/swagger-ui/index.html)
-- Use the Swagger interface to explore endpoints, see required parameters, and test API calls.
+
 
 
 
