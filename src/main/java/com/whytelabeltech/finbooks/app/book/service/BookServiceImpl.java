@@ -270,6 +270,7 @@ public class BookServiceImpl implements BookService{
         return new ReviewResponseDto(
                 saved.getId(),
                 saved.getRating(),
+                saved.getComment(),
                 new ReviewUserDto(user.getId(), user.getUsername()),
                 new ReviewBookDto(book.getId(), book.getTitle()),
                 saved.getCreatedAt()
@@ -286,6 +287,7 @@ public class BookServiceImpl implements BookService{
                 .map(review -> new ReviewResponseDto(
                         review.getId(),
                         review.getRating(),
+                        review.getComment(),
                         new ReviewUserDto(
                                 review.getUser().getId(),
                                 review.getUser().getUsername()
