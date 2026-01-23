@@ -88,6 +88,58 @@ src/<br>
 2. **Spring Boot & JPA**  
    Chosen for rapid development, production-ready REST APIs, and database interaction via ORM.
 
+## 📌 API Endpoints Overview
+
+The FinBooks API exposes REST endpoints to manage books, authors, categories, users, and reviews. All endpoints are secured with JWT authentication unless stated otherwise.
+
+### 🔹 Authentication
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST   | /auth/register | Register a new user |
+| POST   | /auth/login    | Login and receive JWT token |
+
+### 🔹 Users
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /users/{id} | Get user by ID |
+| PUT    | /users/{id} | Update user (self only) |
+| DELETE | /users/{id} | Delete user (self or admin) |
+
+### 🔹 Authors
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /authors        | Get all authors |
+| GET    | /authors/{id}   | Get author by ID |
+| POST   | /authors        | Create a new author |
+| PUT    | /authors/{id}   | Update an author |
+| DELETE | /authors/{id}   | Delete an author |
+
+### 🔹 Books
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /books         | Get all books |
+| GET    | /books/{id}    | Get book by ID |
+| POST   | /books         | Create a new book |
+| PUT    | /books/{id}    | Update a book |
+| DELETE | /books/{id}    | Delete a book |
+
+### 🔹 Categories
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /categories       | Get all categories |
+| GET    | /categories/{id}  | Get category by ID |
+| POST   | /categories       | Create a category |
+| PUT    | /categories/{id}  | Update a category |
+| DELETE | /categories/{id}  | Delete a category |
+
+### 🔹 Reviews
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /reviews/book/{bookId}  | Get reviews for a book |
+| POST   | /reviews               | Create a new review |
+| PUT    | /reviews/{id}          | Update a review (self only) |
+| DELETE | /reviews/{id}          | Delete a review (self only) |
+
 
 ### 🔐 Security Configuration
 
